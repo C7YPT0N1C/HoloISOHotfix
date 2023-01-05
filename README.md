@@ -26,7 +26,7 @@
 \- In the terminal that appears, run: 
 <br/>`sudo su`
 <br/>then
-<br/>`sudo bash ./HoloISO-4.1-Hotfix.sh`
+<br/>`sudo bash ./HoloISOHotfix.sh`
 
 \- When the script has finished running, reboot, as "return to game mode" seems to be hella buggy.
 
