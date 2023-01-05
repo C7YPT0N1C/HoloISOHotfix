@@ -1,4 +1,4 @@
-# HoloISO-Hotfix
+# HoloISO Hotfix
 ***A Hotfix script for the 4.1 HoloISO ISO.***
 <br/>***Gist: https://gist.github.com/C7YPT0N1C/5625ef6a40a558ed6584b6ed62a66419***
 
