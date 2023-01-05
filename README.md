@@ -42,42 +42,4 @@ Notices:
 \- Please keep in mind that this script *may* have unintended side effects if you have more than 1 user on your system (?).
 
 &#x200B;
-
-What It Fixes:
-
-\- Fixes the update screen showing up all weird
-
-\- Seems to fix the update loop, where it shows update screen, shows boot animation, cuts back to update screen.
-
-\- Fixes prominent gamescope crashes.
-
-&#x200B;
-
-Problems:
-
-\- Doesn't play nice with the SteamOS kernel (the default).
-
-\- The install still may might loop the update screen (shows update screen, shows boot animation, cuts back to update screen), although it does seem to eventually work after a few retries / reboots (?). Switching from the SteamOS kernel to the holoiso kernel (and vice versa) seems to fix this.
-
-\- The UI may seem slower / of a lesser quality, probably due to mesa-amber.
-
-\- Occasional visual glitches.
-
-\- Seeming because mesa-amber is installed, choosing a performance overlay level  higher than 0 will glitch the screen temporarily. Switching the level  back to zero, or closing out of the quick settings menu will change this  back.
-
-\- "Return to Game Mode" seems kinda buggy, sometimes working, mostly not.
-
-&#x200B;
-
-Please Test:
-\- (?) = Further testing required / requested
-
-\- General HoloISO features
-
-\- Logout and back into a gamescope session instead of using "Return to gaming mode".
-
-\- Using Nvidia graphics cards
-
-\- Booting without WiFi
-
-\- Using SteamOS kernel
+<br/>***Full Documentation: https://github.com/users/C7YPT0N1C/projects/4***
