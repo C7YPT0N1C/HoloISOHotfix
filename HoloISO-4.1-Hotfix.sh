@@ -1,4 +1,26 @@
 #!/bin/bash
+
+# HOLOISO COMMANDS:
+# steamos-update [check|now]
+# holoiso-[enable|disable]-sessions
+# holoiso-grub-update
+# steamos-sessions-select [plasma|gamescope|plasma-x11-persistent]
+
+
+read -r -p "Do you want to use the '-rel' repositories (1) or the '-3.3' repositories (2)?  (1/2)?" choice # Chooses whether to use -rel repos or -3.3 repos
+if [ "$choice" = "1" ]; then
+        echo "Selecting '-rel' repositories."
+        sudo mv ./pacman.conf /etc/pacman.conf
+elif [ "$choice" = "2" ]; then
+        echo "Selecting '-3.3' repositories."
+        sudo mv ./pacman.conf /etc/pacman.conf
+else
+        echo "Invalid Answer."
+        exit
+fi
+
+
+
 read -r -p "File '/etc/pacman.conf' will be overwritten. Continue (y/n)?" choice # Update pacman.conf to latest working repos
 if [ "$choice" = "y" ]; then
         echo "Updating file '/etc/pacman.conf'"

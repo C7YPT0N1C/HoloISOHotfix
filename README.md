@@ -1,5 +1,5 @@
 # HoloISO Hotfix
-***A Hotfix script for the 4.1 HoloISO ISO.***
+***A Hotfix script for HoloISO ISO.***
 <br/>***Gist (Deprecated): https://gist.github.com/C7YPT0N1C/5625ef6a40a558ed6584b6ed62a66419***
 
 *NOTES:*
