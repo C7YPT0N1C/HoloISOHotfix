@@ -11,7 +11,7 @@
 
 <br/>After a bit of tinkering, I've got it to work to a decent level. If this does not work for you, please tell me what happens! Testers are appreciated.
 
-&#x200B;
+<br/>Instructions:
 
 \- Boot into Holoiso Desktop Mode
 
@@ -24,14 +24,13 @@
 \- Open folder, right click empty space, and click "Open Terminal Here"
 
 \- In the terminal that appears, run: 
-`sudo su`
-`sudo bash ./HoloISO-4.1-Hotfix.sh`
+<br/>`sudo su`
+<br/>then
+<br/>`sudo bash ./HoloISO-4.1-Hotfix.sh`
 
-\- When the script has finished running, reboot, as "return to game mode" seems to be hellu buggy.
+\- When the script has finished running, reboot, as "return to game mode" seems to be hella buggy.
 
-&#x200B;
-
-Notices:
+<br/>Notices:
 
 \- You may have to reboot a few times to fully boot up. If a kernel doesn't work, try a different one.
 
@@ -41,5 +40,4 @@ Notices:
 
 \- Please keep in mind that this script *may* have unintended side effects if you have more than 1 user on your system (?).
 
-&#x200B;
-<br/>***Full Documentation: https://github.com/users/C7YPT0N1C/projects/4***
+<br/>***Find full Documentation: https://github.com/users/C7YPT0N1C/projects/4***
