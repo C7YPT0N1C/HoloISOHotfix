@@ -4,7 +4,7 @@
 # steamos-update [check|now]
 # holoiso-[enable|disable]-sessions
 # holoiso-grub-update
-# steamos-sessions-select [plasma|gamescope|plasma-x11-persistent]
+# steamos-sessions-select [plasma|gamescope|plasma-x11-persistent] (CANNOT AND MUST NOT BE RUN AS ROOT)
 
 echo "! Beginning repository setup. !"
 
