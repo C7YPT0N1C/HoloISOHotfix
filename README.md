@@ -40,5 +40,4 @@
 
 \- Please keep in mind that this script *may* have unintended side effects if you have more than 1 user on your system (?).
 
-&#x200B;
 <br/>***Full Documentation: https://github.com/users/C7YPT0N1C/projects/4***
