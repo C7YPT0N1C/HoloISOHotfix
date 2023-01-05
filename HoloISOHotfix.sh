@@ -6,7 +6,8 @@
 # holoiso-grub-update
 # steamos-sessions-select [plasma|gamescope|plasma-x11-persistent] (CANNOT AND MUST NOT BE RUN AS ROOT)
 
-echo "! This script has a chance of screwing up your system. Proceed only if you know what you are doing. !"
+echo "! WARNING: This script has a chance of screwing up your system. !"
+echo "! WARNING: Proceed ONLY if you know what you are doing. You alone are responsible for the outcome. !"
 echo "! Beginning repository setup. !"
 
 read -r -p "Do you want to use the '-rel' repositories or the '-3.3' repositories?  [rel/3.3] (Default = rel): " choice # Chooses whether to use -rel repos or -3.3 repos
