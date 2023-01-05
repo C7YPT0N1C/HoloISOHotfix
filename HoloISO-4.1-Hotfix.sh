@@ -62,6 +62,8 @@ echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.pam_environment # Default use
 echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.bashrc
 source ~/.bashrc
 
+sudo mv ./pacman.conf /etc/pacman.conf
+
 sudo holoiso-enable-sessions # Re-enables sessions just in case the user decides to reboot.
 sudo holoiso-grub-update # Updates holoiso grub configuration once more, just to be safe
 
