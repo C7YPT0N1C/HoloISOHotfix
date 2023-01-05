@@ -95,7 +95,18 @@ else
 fi
 
 sudo pacman -Syyu # Update repos and packages
-sudo pacman -Syu mesa-amber # Install mesa-amber as mesa causes visual artifacts
+
+read -r -p "Would you like to install mesa-amber? (y/n): " choice # Gives user an option to install mesa-amber (preffered as mesa causes visual artifacts)
+if [ "$choice" = "y" ]; then
+    echo "! Installing mesa-amber. !"
+    sudo pacman -Syu mesa-amber # Installs mesa-amber
+elif [ "$choice" = "n" ]; then
+    echo "! Skipping Installing mesa-amber. !"
+else
+    echo "! Invalid Answer. !"
+    exit
+fi
+
 sudo pacman -Syu polkit # Installs polkit
 sudo pacman -Syyu # Reupdates repos and packages just in case, also to prep for potential steamos-update
 sudo steamos-update check # Checks for SteamOS updates
