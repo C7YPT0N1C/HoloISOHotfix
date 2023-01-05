@@ -1,6 +1,6 @@
-# HoloISO Hotfix
-***A Hotfix script for HoloISO ISO.***
-<br/>***Gist (Deprecated): https://gist.github.com/C7YPT0N1C/5625ef6a40a558ed6584b6ed62a66419***
+# HoloISO-Hotfix
+***A Hotfix script for the 4.1 HoloISO ISO.***
+<br/>***Gist: https://gist.github.com/C7YPT0N1C/5625ef6a40a558ed6584b6ed62a66419***
 
 *NOTES:*
 
@@ -11,7 +11,7 @@
 
 <br/>After a bit of tinkering, I've got it to work to a decent level. If this does not work for you, please tell me what happens! Testers are appreciated.
 
-<br/>Instructions:
+&#x200B;
 
 \- Boot into Holoiso Desktop Mode
 
@@ -24,13 +24,14 @@
 \- Open folder, right click empty space, and click "Open Terminal Here"
 
 \- In the terminal that appears, run: 
-<br/>`sudo su`
-<br/>then
-<br/>`sudo bash ./HoloISOHotfix.sh`
+`sudo su`
+`sudo bash ./HoloISO-4.1-Hotfix.sh`
 
-\- When the script has finished running, reboot, as "return to game mode" seems to be hella buggy.
+\- When the script has finished running, reboot, as "return to game mode" seems to be hellu buggy.
 
-<br/>Notices:
+&#x200B;
+
+Notices:
 
 \- You may have to reboot a few times to fully boot up. If a kernel doesn't work, try a different one.
 
@@ -40,4 +41,5 @@
 
 \- Please keep in mind that this script *may* have unintended side effects if you have more than 1 user on your system (?).
 
+&#x200B;
 <br/>***Full Documentation: https://github.com/users/C7YPT0N1C/projects/4***
