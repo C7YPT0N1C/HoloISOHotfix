@@ -6,83 +6,91 @@
 # holoiso-grub-update
 # steamos-sessions-select [plasma|gamescope|plasma-x11-persistent]
 
-echo "Beginning repository setup."
+echo "! Beginning repository setup. !"
 
 read -r -p "Do you want to use the '-rel' repositories or the '-3.3' repositories?  [rel/3.3] (Default = rel): " choice # Chooses whether to use -rel repos or -3.3 repos
 if [ "$choice" = "rel" ]; then
-        echo "Selecting '-rel' repositories."
+        echo "! Selecting '-rel' repositories. !"
         
         read -r -p "Do you want to use the stable branch?  [y/n] (Default = y): " choice # Chooses whether to use "holoiso-stable" branch or the "holoiso" branch
         if [ "$choice" = "y" ]; then
-            echo "Selecting stable branch."
+            echo "! Selecting stable branch. !"
 
-            read -r -p "File '/etc/pacman.conf' will be overwritten. Continue? (y/n): " choice # Update pacman.conf to latest working repos based on selected repositories
+            read -r -p "File '/etc/pacman.conf' will be backed up then overwritten. Continue? (y/n): " choice # Update pacman.conf to latest working repos based on selected repositories
             if [ "$choice" = "y" ]; then
-                echo "Updating file '/etc/pacman.conf'"
-                sudo cp ./pacman/pacman-rel-stable.conf ./pacman.conf
+                echo "! Updating file '/etc/pacman.conf'. !"
+                sudo cp ./pacman/pacman-rel-stable.conf ./pacman.conf # Move template of selected repo to empty pacman.conf file
+                sudo cp /etc/pacman.conf /etc/pacman.conf.bak # User's pacman.conf file is backed up
+                sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
             elif [ "$choice" = "n" ]; then
-                echo "Skipping updating file '/etc/pacman.conf'"
+                echo "! Skipping updating file '/etc/pacman.conf'. !"
             else
-                echo "Invalid Answer."
+                echo "! Invalid Answer. !"
                 exit
             fi
 
         elif [ "$choice" = "n" ]; then
-            echo "Deselecting stable branch."
+            echo "! Deselecting stable branch. !"
 
-            read -r -p "File '/etc/pacman.conf' will be overwritten. Continue? (y/n): " choice
+            read -r -p "File '/etc/pacman.conf' will be backed up then overwritten. Continue? (y/n): " choice
             if [ "$choice" = "y" ]; then
-                echo "Updating file '/etc/pacman.conf'"
-                sudo cp ./pacman/pacman-rel-holoiso.conf ./pacman.conf
+                echo "! Updating file '/etc/pacman.conf'. !"
+                sudo cp ./pacman/pacman-rel-holoiso.conf ./pacman.conf # Move template of selected repo to empty pacman.conf file
+                sudo cp /etc/pacman.conf /etc/pacman.conf.bak # User's pacman.conf file is backed up
+                sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
             elif [ "$choice" = "n" ]; then
-                echo "Skipping updating file '/etc/pacman.conf'"
+                echo "! Skipping updating file '/etc/pacman.conf'. !"
             else
-                echo "Invalid Answer."
+                echo "! Invalid Answer. !"
                 exit
             fi
         else
-            echo "Invalid Answer."
+            echo "! Invalid Answer. !"
             exit
         fi
 
 elif [ "$choice" = "3.3" ]; then
-        echo "Selecting '-3.3' repositories."
+        echo "! Selecting '-3.3' repositories. !"
 
         read -r -p "Do you want to use the stable branch?  [y/n] (Default = y): " choice
         if [ "$choice" = "y" ]; then
-            echo "Selecting stable branch."
+            echo "! Selecting stable branch. !"
 
-            read -r -p "File '/etc/pacman.conf' will be overwritten. Continue? (y/n): " choice
+            read -r -p "File '/etc/pacman.conf' will be backed up then overwritten. Continue? (y/n): " choice
             if [ "$choice" = "y" ]; then
-                echo "Updating file '/etc/pacman.conf'"
-                sudo cp ./pacman/pacman-3.3-stable.conf ./pacman.conf
+                echo "! Updating file '/etc/pacman.conf'. !"
+                sudo cp ./pacman/pacman-3.3-stable.conf ./pacman.conf # Move template of selected repo to empty pacman.conf file
+                sudo cp /etc/pacman.conf /etc/pacman.conf.bak # User's pacman.conf file is backed up
+                sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
             elif [ "$choice" = "n" ]; then
-                echo "Skipping updating file '/etc/pacman.conf'"
+                echo "! Skipping updating file '/etc/pacman.conf'. !"
             else
-                echo "Invalid Answer."
+                echo "! Invalid Answer. !"
                 exit
             fi
 
         elif [ "$choice" = "n" ]; then
-            echo "Deselecting stable branch."
+            echo "! Deselecting stable branch. !"
 
-            read -r -p "File '/etc/pacman.conf' will be overwritten. Continue? (y/n): " choice
+            read -r -p "File '/etc/pacman.conf' will be backed up then overwritten. Continue? (y/n): " choice
             if [ "$choice" = "y" ]; then
-                echo "Updating file '/etc/pacman.conf'"
-                sudo cp ./pacman/pacman-3.3-holoiso.conf ./pacman.conf
+                echo "! Updating file '/etc/pacman.conf'. !"
+                sudo cp ./pacman/pacman-3.3-holoiso.conf ./pacman.conf # Move template of selected repo to empty pacman.conf file
+                sudo cp /etc/pacman.conf /etc/pacman.conf.bak # User's pacman.conf file is backed up
+                sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
             elif [ "$choice" = "n" ]; then
-                echo "Skipping updating file '/etc/pacman.conf'"
+                echo "! Skipping updating file '/etc/pacman.conf'. !"
             else
-                echo "Invalid Answer."
+                echo "! Invalid Answer. !"
                 exit
             fi
             
         else
-            echo "Invalid Answer."
+            echo "! Invalid Answer. !"
             exit
         fi
 else
-        echo "Invalid Answer."
+        echo "! Invalid Answer. !"
         exit
 fi
 
@@ -99,48 +107,48 @@ sudo holoiso-grub-update # Updates holoiso grub configuration just to be safe
 # Whilst in desktop modem this file is not written to, so I assume it gets written to whilst in gamemode, or whilst playing a game in or out of gamemode? 
 if [ -e /root/.steam/root/config/SteamAppData.vdf ] # Checks if file exists
 then
-    echo "File '/root/.steam/root/config/SteamAppData.vdf' exists. Skipping file creation."
+    echo "! File '/root/.steam/root/config/SteamAppData.vdf' exists. Skipping file creation. !"
 else
-    echo "File '/root/.steam/root/config/SteamAppData.vdf' does not exist. Creating file."
+    echo "! File '/root/.steam/root/config/SteamAppData.vdf' does not exist. Creating file. !"
     
     cd /
-    cd root || { echo "Error: Could not move into directory '/root'. Are you running as root?"; exit 1; }
+    cd root || { echo "! Error: Could not move into directory '/root'. Are you running as root? !"; exit 1; }
      
     if [ -d /root/.steam ]
         then
-            echo "Directory '/root/.steam' exists. Skipping directory creation."
-            cd .steam || { echo "Error: Could not move into directory '/root/.steam'. Are you running as root?"; exit 1; }
+            echo "! Directory '/root/.steam' exists. Skipping directory creation. !"
+            cd .steam || { echo "! Error: Could not move into directory '/root/.steam'. Are you running as root? !"; exit 1; }
         else
-            echo "Directory '/root/.steam' does not exist. Creating directory."
+            echo "! Directory '/root/.steam' does not exist. Creating directory. !"
             sudo mkdir .steam
-            cd .steam || { echo "Error: Could not move into directory '/root/.steam'. Are you running as root?"; exit 1; }
-            echo "Directory '/root/.steam' created"
+            cd .steam || { echo "! Error: Could not move into directory '/root/.steam'. Are you running as root? !"; exit 1; }
+            echo "! Directory '/root/.steam' created. !"
     fi
     
     if [ -d /root/.steam/root ]
         then
-            echo "Directory '/root/.steam/root' exists. Skipping directory creation."
-            cd root || { echo "Error: Could not move into directory '/root/.steam/root'. Are you running as root?"; exit 1; }
+            echo "! Directory '/root/.steam/root' exists. Skipping directory creation. !"
+            cd root || { echo "! Error: Could not move into directory '/root/.steam/root'. Are you running as root? !"; exit 1; }
         else
-            echo "Directory '/root/.steam/root' does not exist. Creating directory."
+            echo "! Directory '/root/.steam/root' does not exist. Creating directory. !"
             sudo mkdir root
-            cd root || { echo "Error: Could not move into directory '/root/.steam/root'. Are you running as root?"; exit 1; }
-            echo "Directory '/root/.steam/root' created"
+            cd root || { echo "! Error: Could not move into directory '/root/.steam/root'. Are you running as root? !"; exit 1; }
+            echo "! Directory '/root/.steam/root' created. !"
     fi
     
     if [ -d /root/.steam/root/config ]
         then
-            echo "Directory '/root/.steam/root/config' exists. Skipping directory creation."
-            cd config || { echo "Error: Could not move into directory '/root/.steam/root/config'. Are you running as root?"; exit 1; }
+            echo "! Directory '/root/.steam/root/config' exists. Skipping directory creation. !"
+            cd config || { echo "! Error: Could not move into directory '/root/.steam/root/config'. Are you running as root? !"; exit 1; }
         else
-            echo "Directory '/root/.steam/root/config' does not exist. Creating directory."
+            echo "! Directory '/root/.steam/root/config' does not exist. Creating directory. !"
             sudo mkdir config
-            cd config || { echo "Error: Could not move into directory '/root/.steam/root/config'. Are you running as root?"; exit 1; }
-            echo "Directory '/root/.steam/root/config' created"
+            cd config || { echo "! Error: Could not move into directory '/root/.steam/root/config'. Are you running as root? !"; exit 1; }
+            echo "! Directory '/root/.steam/root/config' created. !"
     fi
     
     sudo touch SteamAppData.vdf
-    echo "Created file: '/root/.steam/root/config/SteamAppData.vdf'."
+    echo "! Created file: '/root/.steam/root/config/SteamAppData.vdf'. !"
 fi
 
 # The variable "XDG_RUNTIME_DIR" seems to not be set properly, causing incorrect system permissions for the users, and seemingly making gamescope fail to initialise.
@@ -152,4 +160,4 @@ source ~/.bashrc
 sudo holoiso-enable-sessions # Re-enables sessions just in case the user decides to reboot.
 sudo holoiso-grub-update # Updates holoiso grub configuration once more, just to be safe
 
-echo "The script has finished running and sessions have been enabled. Try rebooting to test if holoiso now works."
+echo "! The script has finished running and sessions have been enabled. Try rebooting to test if holoiso now works. !"
