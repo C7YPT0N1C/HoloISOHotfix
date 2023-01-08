@@ -117,8 +117,8 @@ sudo holoiso-grub-update # Updates holoiso grub configuration just to be safe
 
 # The variable "XDG_RUNTIME_DIR" seems to not be set properly, causing incorrect system permissions for the users, and seemingly making gamescope fail to initialise.
 # The following section will set the variable to the correct value.
-echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.pam_environment # Default user ID
-echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.bashrc
+sudo echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.pam_environment # Default user ID
+sudo echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.bashrc
 source ~/.bashrc
 
 # The file "/root/.steam/root/config/SteamAppData.vdf" for some reason is required to exist for gamescope to properly initialise, however, it seems that this file is by default not created.
