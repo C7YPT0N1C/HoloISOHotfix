@@ -4,7 +4,7 @@
 # steamos-update [check|now]
 # holoiso-[enable|disable]-sessions
 # holoiso-grub-update
-# steamos-sessions-select [plasma|gamescope|plasma-x11-persistent] (CANNOT AND MUST NOT BE RUN AS ROOT)
+# steamos-session-select [plasma|gamescope|plasma-x11-persistent] (CANNOT AND MUST NOT BE RUN AS ROOT)
 
 echo "! WARNING: This script has a chance of screwing up your system. !"
 echo "! WARNING: Proceed ONLY if you know what you are doing. You alone are responsible for the outcome. !"
