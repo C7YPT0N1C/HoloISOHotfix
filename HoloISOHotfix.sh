@@ -115,6 +115,12 @@ sudo steamos-update check # Checks for SteamOS updates
 sudo steamos-update now # Updates SteamOS is an update is found 
 sudo holoiso-grub-update # Updates holoiso grub configuration just to be safe
 
+# The variable "XDG_RUNTIME_DIR" seems to not be set properly, causing incorrect system permissions for the users, and seemingly making gamescope fail to initialise.
+# The following section will set the variable to the correct value.
+echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.pam_environment # Default user ID
+echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.bashrc
+source ~/.bashrc
+
 # The file "/root/.steam/root/config/SteamAppData.vdf" for some reason is required to exist for gamescope to properly initialise, however, it seems that this file is by default not created.
 # The following section will check to see if it exists, and if it doesn't, creates it.
 # Whilst in desktop modem this file is not written to, so I assume it gets written to whilst in gamemode, or whilst playing a game in or out of gamemode? 
@@ -160,12 +166,6 @@ else # Exit script
     sudo touch SteamAppData.vdf
     echo "! Created file: '/root/.steam/root/config/SteamAppData.vdf'. !"
 fi
-
-# The variable "XDG_RUNTIME_DIR" seems to not be set properly, causing incorrect system permissions for the users, and seemingly making gamescope fail to initialise.
-# The following section will set the variable to the correct value.
-echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.pam_environment # Default user ID
-echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.bashrc
-source ~/.bashrc
 
 sudo holoiso-enable-sessions # Re-enables sessions just in case the user decides to reboot.
 sudo holoiso-grub-update # Updates holoiso grub configuration once more, just to be safe
