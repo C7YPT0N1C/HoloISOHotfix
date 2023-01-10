@@ -161,12 +161,17 @@ function VariableSet {
     #sudo echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.bashrc
 
     # New version
-    export XDG_RUNTIME_DIR=/run/user/1000 >> ~/.pam_environment # Default user ID
-    export XDG_RUNTIME_DIR=/run/user/1000 >> ~/.bashrc
+    XDG_RUNTIME_DIR=/run/user/1000
+    export XDG_RUNTIME_DIR >> ~/.pam_environment # Default user ID
+    export XDG_RUNTIME_DIR >> ~/.bashrc
     source ~/.bashrc
 }
 
 function SteamAppDataInit {
+    echo "! Switching to root account. If prompted, enter root password. !"
+    su root # Switch to root to allow manipulation of /root directory and child directories. 
+    
+    
     # The file "/root/.steam/root/config/SteamAppData.vdf" for some reason is required to exist for gamescope to properly initialise, however, it seems that this file is by default not created.
     # The following section will check to see if it exists, and if it doesn't, creates it.
     # Whilst in desktop modem this file is not written to, so I assume it gets written to whilst in gamemode, or whilst playing a game in or out of gamemode? 
