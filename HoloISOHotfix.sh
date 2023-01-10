@@ -17,7 +17,7 @@ function InstallInit {
         RecommendedSettings
         #echo "WIP"
         #exit
-    else # Exit script
+    else # Loop script
         echo "! Beginning custom installation. !"
     fi
 }
@@ -58,7 +58,7 @@ function RepoSetup {
                     sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
                 elif [ "$choice" = "n" ]; then
                     echo "! Skipping updating file '/etc/pacman.conf'. !"
-                else # Exit script
+                else # Loop script
                     echo "! Invalid Answer. !"
                     RepoSetup
                 fi
@@ -74,11 +74,11 @@ function RepoSetup {
                     sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
                 elif [ "$choice" = "n" ]; then
                     echo "! Skipping updating file '/etc/pacman.conf'. !"
-                else # Exit script
+                else # Loop script
                     echo "! Invalid Answer. !"
                     RepoSetup
                 fi
-            else # Exit script
+            else # Loop script
                 echo "! Invalid Answer. !"
                 RepoSetup
             fi
@@ -98,7 +98,7 @@ function RepoSetup {
                     sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
                 elif [ "$choice" = "n" ]; then
                     echo "! Skipping updating file '/etc/pacman.conf'. !"
-                else # Exit script
+                else # Loop script
                     echo "! Invalid Answer. !"
                     RepoSetup
                 fi
@@ -114,16 +114,16 @@ function RepoSetup {
                     sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
                 elif [ "$choice" = "n" ]; then
                     echo "! Skipping updating file '/etc/pacman.conf'. !"
-                else # Exit script
+                else # Loop script
                     echo "! Invalid Answer. !"
                     RepoSetup
                 fi
                 
-            else # Exit script
+            else # Loop script
                 echo "! Invalid Answer. !"
                 RepoSetup
             fi
-    else # Exit script
+    else # Loop script
             echo "! Invalid Answer. !"
             RepoSetup
     fi
@@ -138,7 +138,7 @@ function MesaInstall {
         sudo pacman -Syu mesa-amber # Installs mesa-amber
     elif [ "$choice" = "n" ]; then
         echo "! Skipping Installing mesa-amber. !"
-    else # Exit script
+    else # Loop script
         echo "! Invalid Answer. !"
         MesaInstall
     fi
@@ -181,7 +181,7 @@ function SteamAppDataInit {
     if [ -e /root/.steam/root/config/SteamAppData.vdf ] # Checks if file exists
     then
         echo "! File '/root/.steam/root/config/SteamAppData.vdf' exists. Skipping file creation. !"
-    else # Exit script
+    else # Loop script
         echo "! File '/root/.steam/root/config/SteamAppData.vdf' does not exist. Creating file. !"
         
         cd /
@@ -190,7 +190,7 @@ function SteamAppDataInit {
         if [ -d /root/.steam ]; then
                 echo "! Directory '/root/.steam' exists. Skipping directory creation. !"
                 cd .steam || { echo "! Error: Could not move into directory '/root/.steam'. Are you running as root? !"; exit 1; }
-            else # Exit script
+            else # Loop script
                 echo "! Directory '/root/.steam' does not exist. Creating directory. !"
                 sudo mkdir .steam
                 cd .steam || { echo "! Error: Could not move into directory '/root/.steam'. Are you running as root? !"; exit 1; }
@@ -200,7 +200,7 @@ function SteamAppDataInit {
             if [ -d /root/.steam/root ]; then
                 echo "! Directory '/root/.steam/root' exists. Skipping directory creation. !"
                 cd root || { echo "! Error: Could not move into directory '/root/.steam/root'. Are you running as root? !"; exit 1; }
-            else # Exit script
+            else # Loop script
                 echo "! Directory '/root/.steam/root' does not exist. Creating directory. !"
                 sudo mkdir root
                 cd root || { echo "! Error: Could not move into directory '/root/.steam/root'. Are you running as root? !"; exit 1; }
@@ -210,7 +210,7 @@ function SteamAppDataInit {
             if [ -d /root/.steam/root/config ]; then
                 echo "! Directory '/root/.steam/root/config' exists. Skipping directory creation. !"
                 cd config || { echo "! Error: Could not move into directory '/root/.steam/root/config'. Are you running as root? !"; exit 1; }
-            else # Exit script
+            else # Loop script
                 echo "! Directory '/root/.steam/root/config' does not exist. Creating directory. !"
                 sudo mkdir config
                 cd config || { echo "! Error: Could not move into directory '/root/.steam/root/config'. Are you running as root? !"; exit 1; }
