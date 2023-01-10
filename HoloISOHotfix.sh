@@ -155,8 +155,14 @@ function SysUpdate {
 function VariableSet {
     # The variable "XDG_RUNTIME_DIR" seems to not be set properly, causing incorrect system permissions for the users, and seemingly making gamescope fail to initialise.
     # The following section will set the variable to the correct value.
-    sudo echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.pam_environment # Default user ID
-    sudo echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.bashrc
+    
+    # Old version
+    #sudo echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.pam_environment # Default user ID
+    #sudo echo "export XDG_RUNTIME_DIR=/run/user/1000" >> ~/.bashrc
+
+    # New version
+    sudo export XDG_RUNTIME_DIR=/run/user/1000 >> ~/.pam_environment # Default user ID
+    sudo export XDG_RUNTIME_DIR=/run/user/1000 >> ~/.bashrc
     source ~/.bashrc
 }
 
