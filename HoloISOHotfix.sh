@@ -11,16 +11,32 @@ function PreInstall {
     echo "! WARNING: Proceed ONLY if you know what you are doing. You alone are responsible for the outcome. !"
 }
 
-function RecommendedSettings {
+function InstallInit {
     read -r -p "Would you like to use the recommended settings? [y/n] (Default = n): " choice # Lets user choose whether to use custom installation options, or just use the recommended ones
     if [ "$choice" = "y" ]; then
-        echo "! Using recommended settings. !"
-
-        echo "WIP"
-        exit
+        RecommendedSettings
+        #echo "WIP"
+        #exit
     else # Exit script
         echo "! Beginning custom installation. !"
     fi
+}
+
+function RecommendedSettings {
+    echo "! Using recommended settings. !"
+
+    echo "! Using branch 'stable' of '-rel' repository. !" # Update repos
+    sudo cp ./pacman/pacman-rel-stable.conf ./pacman.conf # Move template of selected repo to empty pacman.conf file
+    echo "! Backing up file '/etc/pacman.conf'. !"
+    sudo cp /etc/pacman.conf /etc/pacman.conf.bak # User's pacman.conf file is backed up
+    echo "! Updating file'/etc/pacman.conf'. !"
+    sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
+
+    MesaInstall # Rest of script is unattended anyways
+    SysUpdate
+    VariableSet
+    SteamAppDataInit
+    PostInstall
 }
 
 function RepoSetup {
@@ -144,7 +160,7 @@ function VariableSet {
     source ~/.bashrc
 }
 
-function SteamAppDataCreate {
+function SteamAppDataInit {
     # The file "/root/.steam/root/config/SteamAppData.vdf" for some reason is required to exist for gamescope to properly initialise, however, it seems that this file is by default not created.
     # The following section will check to see if it exists, and if it doesn't, creates it.
     # Whilst in desktop modem this file is not written to, so I assume it gets written to whilst in gamemode, or whilst playing a game in or out of gamemode? 
@@ -201,12 +217,12 @@ function PostInstall {
 
 function Main { # CALLING FUNCTIONS
     PreInstall
-    RecommendedSettings
+    InstallInit
     RepoSetup
     MesaInstall
     SysUpdate
     VariableSet
-    SteamAppDataCreate
+    SteamAppDataInit
     PostInstall
 }
 
