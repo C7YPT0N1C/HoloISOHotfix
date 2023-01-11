@@ -153,9 +153,6 @@ function SysUpdate { # Updates
 }
 
 function VariableSet { # Sets environment variables
-    echo "! Switching to root user. If prompted, please enter root password. !"
-    su root # Switches user to root to allow for write access to the /root parent directory and it's child directories 
-    
     # The variable "XDG_RUNTIME_DIR" seems to not be set properly, causing incorrect system permissions for the users, and seemingly making gamescope fail to initialise.
     # The following section will set the variable to the correct value.
     
@@ -171,8 +168,8 @@ function VariableSet { # Sets environment variables
 }
 
 function SteamAppDataInit { # Creates file "/root/.steam/root/config/SteamAppData.vdf"
-    echo "! Switching to root account. If prompted, enter root password. !"
-    su root # Switch to root to allow manipulation of /root directory and child directories. 
+    echo "! Switching to root user. If prompted, please enter root password. !"
+    su root # Switches user to root to allow for write access to the /root parent directory and it's child directories 
     
     
     # The file "/root/.steam/root/config/SteamAppData.vdf" for some reason is required to exist for gamescope to properly initialise, however, it seems that this file is by default not created.
