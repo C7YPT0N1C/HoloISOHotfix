@@ -6,13 +6,13 @@
 # holoiso-grub-update
 # steamos-session-select [plasma|gamescope|plasma-x11-persistent] (CANNOT AND MUST NOT BE RUN AS ROOT)
 
-function PreInstall {
+function PreInstall { # Gives user warnings about the dangers of using the script
     echo "! WARNING: This script has a chance of screwing up your system. It won't work for everyone, this is a hotfix, not a patch. !"
     echo "! WARNING: Proceed ONLY if you know what you are doing. You alone are responsible for the outcome. !"
 }
 
-function InstallInit {
-    read -r -p "Would you like to use the recommended settings? [y/n] (Default = n): " choice # Lets user choose whether to use custom installation options, or just use the recommended ones
+function InstallInit { # Lets user choose whether to use custom installation options, or just use the recommended ones
+    read -r -p "Would you like to use the recommended settings? [y/n] (Default = n): " choice 
     if [ "$choice" = "y" ]; then
         RecommendedSettings
         #echo "WIP"
@@ -22,7 +22,7 @@ function InstallInit {
     fi
 }
 
-function RecommendedSettings {
+function RecommendedSettings { # Applies recommended settings
     echo "! Using recommended settings. !"
 
     echo "! Using branch 'stable' of '-rel' repository. !" # Update repos
@@ -39,7 +39,7 @@ function RecommendedSettings {
     PostInstall
 }
 
-function RepoSetup {
+function RepoSetup { # Sets up repos
     echo "! Beginning repository setup. !"
 
     read -r -p "Do you want to use the '-rel' repositories or the '-3.3' repositories?  [rel/3.3] (Default = rel): " choice # Chooses whether to use -rel repos or -3.3 repos
@@ -129,7 +129,7 @@ function RepoSetup {
     fi
 }
 
-function MesaInstall {
+function MesaInstall { # Installs mesa-amber
     sudo pacman -Syyu # Update repos and packages
 
     read -r -p "Would you like to install mesa-amber? [y/n] (Default = y): " choice # Gives user an option to install mesa-amber (preffered as mesa causes visual artifacts)
@@ -144,7 +144,7 @@ function MesaInstall {
     fi
 }
 
-function SysUpdate {
+function SysUpdate { # Updates
     sudo pacman -Syu polkit # Installs polkit
     sudo pacman -Syyu # Reupdates repos and packages just in case, also to prep for potential steamos-update
     sudo steamos-update check # Checks for SteamOS updates
@@ -152,7 +152,7 @@ function SysUpdate {
     sudo holoiso-grub-update # Updates holoiso grub configuration just to be safe
 }
 
-function VariableSet {
+function VariableSet { # Sets environment variables
     echo "! Switching to root user. If prompted, please enter root password. !"
     su root # Switches user to root to allow for write access to the /root parent directory and it's child directories 
     
@@ -170,7 +170,7 @@ function VariableSet {
     source ~/.bashrc
 }
 
-function SteamAppDataInit {
+function SteamAppDataInit { # Creates file "/root/.steam/root/config/SteamAppData.vdf"
     echo "! Switching to root account. If prompted, enter root password. !"
     su root # Switch to root to allow manipulation of /root directory and child directories. 
     
@@ -222,7 +222,7 @@ function SteamAppDataInit {
     fi
 }
 
-function PostInstall {
+function PostInstall { # Finishes up installation
     sudo holoiso-enable-sessions # Re-enables sessions just in case the user decides to reboot.
     sudo holoiso-grub-update # Updates holoiso grub configuration once more, just to be safe
 
@@ -240,4 +240,4 @@ function Main { # CALLING FUNCTIONS
     PostInstall
 }
 
-Main
+Main # Run script
