@@ -6,12 +6,12 @@
 # holoiso-grub-update
 # steamos-session-select [plasma|gamescope|plasma-x11-persistent] (CANNOT AND MUST NOT BE RUN AS ROOT)
 
-function PreInstall { # Gives user warnings about the dangers of using the script
+function PreInstall { # Gives user warnings about the dangers of using the script.
     echo "! WARNING: This script has a chance of screwing up your system. It won't work for everyone, this is a hotfix, not a patch. !"
     echo "! WARNING: Proceed ONLY if you know what you are doing. You alone are responsible for the outcome. !"
 }
 
-function InstallInit { # Lets user choose whether to use custom installation options, or just use the recommended ones
+function InstallInit { # Lets user choose whether to use custom installation options, or just use the recommended ones.
     read -r -p "Would you like to use the recommended settings? [y/n] (Default = n): " choice 
     if [ "$choice" = "y" ]; then
         RecommendedSettings
@@ -22,17 +22,17 @@ function InstallInit { # Lets user choose whether to use custom installation opt
     fi
 }
 
-function RecommendedSettings { # Applies recommended settings
+function RecommendedSettings { # Applies recommended settings.
     echo "! Using recommended settings. !"
 
     echo "! Using branch 'stable' of '-rel' repository. !" # Update repos
-    sudo cp ./pacman/pacman-rel-stable.conf ./pacman.conf # Move template of selected repo to empty pacman.conf file
+    sudo cp ./pacman/pacman-rel-stable.conf ./pacman.conf # Move template of selected repo to empty pacman.conf file.
     echo "! Backing up file '/etc/pacman.conf'. !"
-    sudo cp /etc/pacman.conf /etc/pacman.conf.bak # User's pacman.conf file is backed up
+    sudo cp /etc/pacman.conf /etc/pacman.conf.bak # User's pacman.conf file is backed up.
     echo "! Updating file'/etc/pacman.conf'. !"
-    sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
+    sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system.
 
-    MesaInstall # Rest of script is unattended anyways
+    MesaInstall # Calls on rest of the script to run (these parts require no user input).
     SysUpdate
     VariableSet
     SteamAppDataInit
@@ -42,20 +42,20 @@ function RecommendedSettings { # Applies recommended settings
 function RepoSetup { # Sets up repos
     echo "! Beginning repository setup. !"
 
-    read -r -p "Do you want to use the '-rel' repositories or the '-3.3' repositories?  [rel/3.3] (Default = rel): " choice # Chooses whether to use -rel repos or -3.3 repos
+    read -r -p "Do you want to use the '-rel' repositories or the '-3.3' repositories?  [rel/3.3] (Default = rel): " choice # Chooses whether to use -rel repos or -3.3 repos.
     if [ "$choice" = "rel" ]; then
             echo "! Selecting '-rel' repositories. !" # "-rel" repos chosen
             
-            read -r -p "Do you want to use the stable branch?  [y/n] (Default = y): " choice # Chooses whether to use "holoiso-stable" branch or the "holoiso" branch
+            read -r -p "Do you want to use the stable branch?  [y/n] (Default = y): " choice # Chooses whether to use "holoiso-stable" branch or the "holoiso" branch.
             if [ "$choice" = "y" ]; then
                 echo "! Selecting stable branch. !" # Stable branch chosen
 
-                read -r -p "File '/etc/pacman.conf' will be backed up then overwritten. Continue? [y/n] (Default = y): " choice # Update pacman.conf to latest working repos based on selected repositories
+                read -r -p "File '/etc/pacman.conf' will be backed up then overwritten. Continue? [y/n] (Default = y): " choice # Update pacman.conf to latest working repos based on selected repositories.
                 if [ "$choice" = "y" ]; then
                     echo "! Updating file '/etc/pacman.conf'. !"
-                    sudo cp ./pacman/pacman-rel-stable.conf ./pacman.conf # Move template of selected repo to empty pacman.conf file
-                    sudo cp /etc/pacman.conf /etc/pacman.conf.bak # User's pacman.conf file is backed up
-                    sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system
+                    sudo cp ./pacman/pacman-rel-stable.conf ./pacman.conf # Move template of selected repo to empty pacman.conf file.
+                    sudo cp /etc/pacman.conf /etc/pacman.conf.bak # User's pacman.conf file is backed up.
+                    sudo cp ./pacman.conf /etc/pacman.conf # New pacman.conf file is moved into system.
                 elif [ "$choice" = "n" ]; then
                     echo "! Skipping updating file '/etc/pacman.conf'. !"
                 else # Loop script
@@ -66,7 +66,7 @@ function RepoSetup { # Sets up repos
             elif [ "$choice" = "n" ]; then
                 echo "! Deselecting stable branch. !" # "Unstable" branch chosen
 
-                read -r -p "File '/etc/pacman.conf' will be backed up then overwritten. Continue? [y/n] (Default = y): " choice # Update pacman.conf to latest working repos based on selected repositories
+                read -r -p "File '/etc/pacman.conf' will be backed up then overwritten. Continue? [y/n] (Default = y): " choice # Update pacman.conf to latest working repos based on selected repositories.
                 if [ "$choice" = "y" ]; then
                     echo "! Updating file '/etc/pacman.conf'. !"
                     sudo cp ./pacman/pacman-rel-holoiso.conf ./pacman.conf
@@ -86,7 +86,7 @@ function RepoSetup { # Sets up repos
     elif [ "$choice" = "3.3" ]; then
             echo "! Selecting '-3.3' repositories. !" # "-3.3" repos chosen
 
-            read -r -p "Do you want to use the stable branch?  [y/n] (Default = y): " choice # Chooses whether to use "holoiso-stable" branch or the "holoiso" branch
+            read -r -p "Do you want to use the stable branch?  [y/n] (Default = y): " choice # Chooses whether to use "holoiso-stable" branch or the "holoiso" branch.
             if [ "$choice" = "y" ]; then
                 echo "! Selecting stable branch. !" # Stable branch chosen
 
@@ -132,7 +132,7 @@ function RepoSetup { # Sets up repos
 function MesaInstall { # Installs mesa-amber
     sudo pacman -Syyu # Update repos and packages
 
-    read -r -p "Would you like to install mesa-amber? [y/n] (Default = y): " choice # Gives user an option to install mesa-amber (preffered as mesa causes visual artifacts)
+    read -r -p "Would you like to install mesa-amber? [y/n] (Default = y): " choice # Gives user an option to install mesa-amber (preferred as mesa causes visual artifacts).
     if [ "$choice" = "y" ]; then
         echo "! Installing mesa-amber. !"
         sudo pacman -Syu mesa-amber # Installs mesa-amber
@@ -146,10 +146,10 @@ function MesaInstall { # Installs mesa-amber
 
 function SysUpdate { # Updates
     sudo pacman -Syu polkit # Installs polkit
-    sudo pacman -Syyu # Reupdates repos and packages just in case, also to prep for potential steamos-update
-    sudo steamos-update check # Checks for SteamOS updates
-    sudo steamos-update now # Updates SteamOS is an update is found 
-    sudo holoiso-grub-update # Updates holoiso grub configuration just to be safe
+    sudo pacman -Syyu # Reupdates repos and packages just in case, also to prep for potential steamos-update.
+    sudo steamos-update check # Checks for SteamOS updates.
+    sudo steamos-update now # Updates SteamOS is an update is found.
+    sudo holoiso-grub-update # Updates holoiso grub configuration just to be safe.
 }
 
 function VariableSet { # Sets environment variables
@@ -169,7 +169,7 @@ function VariableSet { # Sets environment variables
 
 function SteamAppDataInit { # Creates file "/root/.steam/root/config/SteamAppData.vdf"
     echo "! Switching to root user. If prompted, please enter root password. !"
-    su root # Switches user to root to allow for write access to the /root parent directory and it's child directories 
+    su root # Switches user to root to allow for write access to the /root parent directory and it's child directories.
     
     
     # The file "/root/.steam/root/config/SteamAppData.vdf" for some reason is required to exist for gamescope to properly initialise, however, it seems that this file is by default not created.
@@ -221,12 +221,12 @@ function SteamAppDataInit { # Creates file "/root/.steam/root/config/SteamAppDat
 
 function PostInstall { # Finishes up installation
     sudo holoiso-enable-sessions # Re-enables sessions just in case the user decides to reboot.
-    sudo holoiso-grub-update # Updates holoiso grub configuration once more, just to be safe
+    sudo holoiso-grub-update # Updates holoiso grub configuration once more, just to be safe.
 
     echo "! The script has finished running and sessions have been enabled. Try rebooting to test if holoiso now works. !"
 }
 
-function Main { # CALLING FUNCTIONS
+function Main { # Calling functions
     PreInstall
     InstallInit
     RepoSetup
