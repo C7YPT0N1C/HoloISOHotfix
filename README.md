@@ -30,4 +30,4 @@ After a bit of tinkering, I've got it to work to a decent level. If this does no
 <br/>\- Please keep in mind that when the script runs, mesa-amber will be installed to replace mesa, mesa and mesa-amber both being the 3d graphics library Holoiso / SteamOS use. You can switch to any version of mesa, and see if that works better for you.
 <br/>\- Please keep in mind that this script *may* have unintended side effects if you have more than 1 user on your system (?).
 
-<br/>***Full Project Plan: https://github.com/users/C7YPT0N1C/projects/4***
+<br/>[View Full Project Plan](https://github.com/users/C7YPT0N1C/projects/4/views/3?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=Status)
