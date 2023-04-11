@@ -5,13 +5,13 @@
 <br/>**Latest HoloISO Version: v4.1**
 
 **Successful HoloISO Versions:**
-<br/>\- v4.1v2 (ISO No Longer Available)
-<br/>\- v4.1v1 (ISO No Longer Available)
+<br/>\- HoloISOv4.1v2 (ISO No Longer Available) Works With [HoloISOHotfix v2](https://github.com/C7YPT0N1C/HoloISOHotfix/releases/tag/HoloISOv4.1v2)
+<br/>\- HoloISOv4.1v1 (ISO No Longer Available) Works With [HoloISOHotfix v2](https://github.com/C7YPT0N1C/HoloISOHotfix/releases/tag/HoloISOv4.1v2)
 
 **Unsuccessful HoloISO Versions:**
-<br/>\- [v4.2_6.1-mesa23-test (Direct ISO Download)](https://github.com/HoloISO/holoiso/suites/11660907619/artifacts/605836072)
-<br/>\- [v4.2_6.1-test (Direct ISO Download)](https://github.com/HoloISO/holoiso/suites/11524767163/artifacts/596186278)
-<br/>\- [v4.0 (Release Page)](https://github.com/HoloISO/holoiso/releases/tag/v4.0)
+<br/>\- [HoloISOv4.2_6.1-mesa23-test (Direct ISO Download)](https://github.com/HoloISO/holoiso/suites/11660907619/artifacts/605836072)
+<br/>\- [HoloISOv4.2_6.1-test (Direct ISO Download)](https://github.com/HoloISO/holoiso/suites/11524767163/artifacts/596186278)
+<br/>\- [HoloISOv4.0 (Release Page)](https://github.com/HoloISO/holoiso/releases/tag/v4.0)
 
 <br/>If this does not work for you, please tell me what happens by opening an [Issue](https://github.com/C7YPT0N1C/HoloISOHotfix/issues/new)!
 
