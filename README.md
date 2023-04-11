@@ -2,6 +2,11 @@
 
 \- **THIS SCRIPT HAS BEEN CODED TO ENSURE THAT YOUR SYSTEM WON'T GET BORKED, BUT IS STILL EXPERIMENTAL. PROCEED AT YOUR OWN RISK.**
 
+<br/>**Latest HoloISO Version: v4.1**
+
+**Successful HoloISO Versions:**
+<br/>\- v4.1
+
 <br/>If this does not work for you, please tell me what happens by opening an [Issue](https://github.com/C7YPT0N1C/HoloISOHotfix/issues/new)!
 
 <br/>**INSTAll INSTRUCTIONS CAN BE FOUND IN RELEASE NOTES.**
