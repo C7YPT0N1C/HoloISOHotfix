@@ -5,7 +5,13 @@
 <br/>**Latest HoloISO Version: v4.1**
 
 **Successful HoloISO Versions:**
-<br/>\- v4.1
+<br/>\- v4.1v2
+<br/>\- v4.1v1
+
+**Unsuccessful HoloISO Versions:**
+<br/>\- v4.2_6.1-mesa23-test
+<br/>\- v4.2_6.1-test
+<br/>\- v4.0
 
 <br/>If this does not work for you, please tell me what happens by opening an [Issue](https://github.com/C7YPT0N1C/HoloISOHotfix/issues/new)!
 
