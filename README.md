@@ -4,24 +4,7 @@
 
 <br/>If this does not work for you, please tell me what happens by opening an [Issue](https://github.com/C7YPT0N1C/HoloISOHotfix/issues/new)!
 
-<br/>**INSTRUCTIONS:**
-
-\- Boot into Holoiso Desktop Mode
-
-\- At this point, Steam Desktop will boot up. You may sign in, but this will skip the SteamOS OOBE. I do recommend to sign in, but if you want / need the OOBE, don't sign in.
-
-\- Open a web browser and download the script above.
-
-\- Extract download.
-
-\- Open folder, right click empty space, and click "Open Terminal Here"
-
-\- In the terminal that appears, run: 
-<br/>`sudo su`
-<br/>then
-<br/>`sudo bash ./HoloISOHotfix.sh`
-
-\- When the script has finished running, reboot, as "return to game mode" seems to be hella buggy.
+<br/>**INSTAll INSTRUCTIONS CAN BE FOUND IN RELEASE NOTES.**
 
 <br/>**NOTES:**
 <br/>\- You may have to reboot your device a few times for the OS to fully boot up. If a kernel doesn't work, try a different one.
