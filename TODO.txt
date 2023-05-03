@@ -1,0 +1,2 @@
+- Change all functions to be formatted to be like the ErrorHandler function
+- Function -> Function()

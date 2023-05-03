@@ -18,15 +18,18 @@ function InstallInit { # Lets user choose whether to use custom installation opt
         #echo "WIP"
         #exit
     
-    else # Loop script
+    elif [ "$choice" = "n" ]; then
         echo "! Beginning custom installation. !"
+
+    else # Loop script
+        ErrorHandler Invalid
     fi
 }
 
 function RecommendedSettings { # Applies recommended settings.
     echo "! Using recommended settings. !"
 
-    echo "! Repositories need no changes. !" # Update repos
+    RepoSetup
     SoftwareInstall # Calls on rest of the script to run (these parts require no user input).
     SystemUpdate
     VariableSet
@@ -35,7 +38,7 @@ function RecommendedSettings { # Applies recommended settings.
 }
 
 function RepoSetup { # Sets up repos
-    echo "! Repositories need no changes. !"
+    echo "! Repositories for the latest HoloISO version need no changes. !"
 }
 
 function SoftwareInstall { # Installs mesa-amber
@@ -51,7 +54,7 @@ function SoftwareInstall { # Installs mesa-amber
         pacman -Syyu mesa # Installs mesa, in case it has been replaced on a different run
     
     else # Loop script
-        echo "! Invalid Answer. !"
+        ErrorHandler Invalid
         SoftwareInstall
     fi
 
@@ -130,6 +133,15 @@ function PostInstall { # Finishes up installation
     sudo holoiso-enable-sessions # Re-enables sessions just in case the user decides to reboot.
     SystemUpdate
     echo "! The script has finished running and sessions have been enabled. Try rebooting to test if holoiso now works. !"
+}
+
+function ErrorHandler { # Handles any errors that may be spat out by the script
+    if [ "$choice" = "Unknown" ]; then
+        echo "! Idk wtf happened lol, but something broke. !"
+    
+    elif [ "$choice" = "Invalid" ]; then
+        echo "! Invalid Choice. !"
+    fi
 }
 
 function Main { # Calling functions
