@@ -1,1 +1,2 @@
 - Add old HoloISO ISOs to "ISOs" folder.
+- ISOs are in "ISOs" branch. Link ISOs to readme.
