@@ -2,10 +2,7 @@
 
 **THIS SCRIPT HAS BEEN CODED TO ENSURE THAT YOUR SYSTEM WON'T GET BORKED, BUT IS STILL EXPERIMENTAL. PROCEED AT YOUR OWN RISK.**
 
-**UPDATE: As of writing this, HoloISO is very unstable. I would reccommend [ChimeraOS](https://chimeraos.org/), as it has the same UI and features (?), but is MUCH more stable.**
-
-
-**UPDATE 2: Chnaged repo to read-only. Code will still be available to fork, but I will no longer be maintaining it.**
+**UPDATE: Changed repo to read-only. Code will still be available to fork, but I will no longer be maintaining it.**
 
 If this does not work for you, please tell me what happens by opening an [Issue](https://github.com/C7YPT0N1C/HoloISOHotfix/issues/new)!
 
